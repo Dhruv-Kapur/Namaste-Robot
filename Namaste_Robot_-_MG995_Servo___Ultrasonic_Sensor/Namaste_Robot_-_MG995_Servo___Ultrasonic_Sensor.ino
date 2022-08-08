@@ -34,10 +34,8 @@ void loop() {
   duration = pulseIn(echoPin, HIGH);
   distance = duration * 0.034 / 2;
   Serial.println(distance);
-    
-  if (distance>11)
-    {
-      if (distance<20) {
+
+    if (distance>200) {
       Serial.print(distance);
       Serial.println("motor - 0");// You can display on the serial the signal value
       MG995_Servo.write(30); //Turn clockwise at high speed
@@ -45,7 +43,7 @@ void loop() {
       delay(3000);
       MG995_Servo.detach();//Stop. You can use deatch function or use write(x), as x is the middle of 0-180 which is 90, but some lack of precision may ch
       MG995_Servo.attach(Servo_PWM);
-      MG995_Servo1.attach(Servo_PWM2);ange this value
+      MG995_Servo1.attach(Servo_PWM2);
       MG995_Servo1.detach();
       delay(2000);
       MG995_Servo.attach(Servo_PWM);//Always use attach function after detach to re-connect your servo with the board
@@ -57,6 +55,5 @@ void loop() {
       MG995_Servo.detach();//Stop
       MG995_Servo1.detach();
       delay(2000);
-      }
     }
 }
