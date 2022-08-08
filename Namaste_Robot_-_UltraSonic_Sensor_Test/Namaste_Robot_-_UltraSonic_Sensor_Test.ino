@@ -1,4 +1,4 @@
-#define echoPin 7 // attach pin D2 Arduino to pin Echo of HC-SR04
+#define echoPin 8 // attach pin D2 Arduino to pin Echo of HC-SR04
 #define trigPin 6 //attach pin D3 Arduino to pin Trig of HC-SR04
 
 // defines variables
