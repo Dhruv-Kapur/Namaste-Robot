@@ -32,15 +32,15 @@ void loop()
   if (distance>11)
     {
     if (distance<20) {
-      for(pos=0;pos<=90;pos++){
+      for(pos=90;pos>=0;pos--){
         Myservo.write(pos);
-        Myservo2.write(90 - pos);
+        Myservo2.write(pos);
     
         delay(5);
       }
       delay(1000);
       
-      for(pos=90;pos>=0;pos--){
+      for(pos=0;pos<=90;pos++){
         Myservo.write(pos);
         Myservo2.write( 90 - pos);
         delay(5);
