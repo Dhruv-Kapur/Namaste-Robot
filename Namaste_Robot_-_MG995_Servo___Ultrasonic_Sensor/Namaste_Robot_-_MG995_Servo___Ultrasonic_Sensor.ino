@@ -38,24 +38,25 @@ void loop() {
   if (distance>11)
     {
       if (distance<20) {
+      Serial.print(distance);
       Serial.println("motor - 0");// You can display on the serial the signal value
-      MG995_Servo.write(90); //Turn clockwise at high speed
-      MG995_Servo1.write(90);
+      MG995_Servo.write(30); //Turn clockwise at high speed
+      MG995_Servo1.write(70);
       delay(3000);
-      MG995_Servo.detach();//Stop. You can use deatch function or use write(x), as x is the middle of 0-180 which is 90, but some lack of precision may change this value
+      MG995_Servo.detach();//Stop. You can use deatch function or use write(x), as x is the middle of 0-180 which is 90, but some lack of precision may ch
+      MG995_Servo.attach(Servo_PWM);
+      MG995_Servo1.attach(Servo_PWM2);ange this value
       MG995_Servo1.detach();
       delay(2000);
       MG995_Servo.attach(Servo_PWM);//Always use attach function after detach to re-connect your servo with the board
       MG995_Servo1.attach(Servo_PWM2);
       Serial.println("motor - 1");//Turn left high speed
-      MG995_Servo.write(30);
-      MG995_Servo1.write(30);
+      MG995_Servo.write(85);
+      MG995_Servo1.write(20);
       delay(3000);
       MG995_Servo.detach();//Stop
       MG995_Servo1.detach();
       delay(2000);
-      MG995_Servo.attach(Servo_PWM);
-      MG995_Servo1.attach(Servo_PWM2);
       }
     }
 }
