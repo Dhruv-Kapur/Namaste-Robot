@@ -3,8 +3,8 @@
  */
 
 #include <Servo.h> // include servo library to use its related functions
-#define Servo_PWM 6 // A descriptive name for D6 pin of Arduino to provide PWM signal
-#define Servo_PWM2 9
+#define Servo_PWM 3 // A descriptive name for D6 pin of Arduino to provide PWM signal
+#define Servo_PWM2 6
 Servo MG995_Servo;  // Define an instance of of Servo with the name of "MG995_Servo"
 Servo MG995_Servo1;
 
@@ -37,20 +37,20 @@ void loop() {
 
     if (distance < 20) {
       Serial.print(distance);
+      MG995_Servo.attach(Servo_PWM);//Always use attach function after detach to re-connect your servo with the board
+      MG995_Servo1.attach(Servo_PWM2);
+      MG995_Servo.write(85); //Turn clockwise at high speed
+      MG995_Servo1.write(20);
       Serial.println("motor - 0");// You can display on the serial the signal value
-      MG995_Servo.write(30); //Turn clockwise at high speed
-      MG995_Servo1.write(70);
       delay(3000);
       MG995_Servo.detach();//Stop. You can use deatch function or use write(x), as x is the middle of 0-180 which is 90, but some lack of precision may ch
-      MG995_Servo.attach(Servo_PWM);
-      MG995_Servo1.attach(Servo_PWM2);
       MG995_Servo1.detach();
       delay(2000);
       MG995_Servo.attach(Servo_PWM);//Always use attach function after detach to re-connect your servo with the board
       MG995_Servo1.attach(Servo_PWM2);
       Serial.println("motor - 1");//Turn left high speed
-      MG995_Servo.write(85);
-      MG995_Servo1.write(20);
+      MG995_Servo.write(20);
+      MG995_Servo1.write(70);
       delay(3000);
       MG995_Servo.detach();//Stop
       MG995_Servo1.detach();
