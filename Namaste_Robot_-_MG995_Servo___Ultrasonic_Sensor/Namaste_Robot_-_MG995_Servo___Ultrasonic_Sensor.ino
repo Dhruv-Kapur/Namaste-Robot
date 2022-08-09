@@ -35,7 +35,7 @@ void loop() {
   distance = duration * 0.034 / 2;
   Serial.println(distance);
 
-    if (distance>200) {
+    if (distance < 20) {
       Serial.print(distance);
       Serial.println("motor - 0");// You can display on the serial the signal value
       MG995_Servo.write(30); //Turn clockwise at high speed
